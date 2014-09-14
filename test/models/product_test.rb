@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+  fixtures :products
   # test "the truth" do
   #   assert true
   # end
@@ -50,6 +51,17 @@ class ProductTest < ActiveSupport::TestCase
     bad.each do |name|
       assert new_product(name).invalid?, "#{name} shouldn't be valid"
     end
-  end    
-    
+  end
+  
+  test "product is not valid without a unique name within a brand" do
+    product = Product.new(brand: products(:mac_lipstick).brand,
+                          name: products(:mac_lipstick).name,
+                          description: "yyy",
+                          image_url: "fred.gif",
+                          price: 1,
+                          category: "Lips")
+    assert product.invalid?
+    assert_equal ["has already been taken"], product.errors[:name]
+  end
+     
 end

@@ -15,3 +15,11 @@ two:
   image_url: MyString
   price: 9.99
   category: MyString
+  
+mac_lipstick:
+    brand: MAC
+    name: lipstick
+    description: Color plus texture for the lips.
+    image_url: lipstick.png
+    price: 16.00
+    category: Lips
