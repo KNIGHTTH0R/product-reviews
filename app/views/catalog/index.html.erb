@@ -1,1 +1,14 @@
-<h1>Main Catalog of Products goes here</h1>
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Products</h1>
+
+<% @products.each do |product| %>
+	<div class="entry">
+		<%= image_tag(product.image_url) %>
+		<h3><%= product.brand %></h3>
+		<h4><%= product.name %></h4>
+		<%= sanitize(product.description) %>
+	</div>
+<% end %>
