@@ -18,7 +18,7 @@ two:
   
 mac_lipstick:
     brand: MAC
-    name: lipstick
+    name: Lipstick
     description: Color plus texture for the lips.
     image_url: lipstick.png
     price: 16.00
